@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEYLON ROADS | Premium Airport Transfers & Private Tours Sri Lanka</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0a0f1d',
+                        surface: '#111827',
+                        surfaceCard: 'rgba(17, 24, 39, 0.75)',
+                        emeraldAccent: {
+                            DEFAULT: '#10b981',
+                            hover: '#059669',
+                            light: '#a7f3d0'
+                        },
+                        goldAccent: {
+                            DEFAULT: '#f59e0b',
+                            hover: '#d97706'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0f1d;
+            color: #f3f4f6;
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-panel-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-panel-hover:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.15);
+        }
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(10, 15, 29, 0.75) 0%, rgba(10, 15, 29, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1800&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-slate-100 font-sans antialiased selection:bg-emeraldAccent selection:text-obsidian">
+
+    <!-- Sticky Glassmorphic Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-amber-500 p-[1px] shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-obsidian rounded-[11px] flex items-center justify-center text-emerald-400 text-xl font-bold">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-wider text-white block leading-tight font-sans">CEYLON <span class="gradient-text">ROADS</span></span>
+                        <span class="text-[10px] font-semibold text-amber-400 tracking-widest uppercase block">Luxury Chauffeur & Private Tours</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-7 font-medium text-sm text-slate-300">
+                    <a href="#home" class="hover:text-emeraldAccent transition-colors">Home</a>
+                    <a href="#calculator" class="hover:text-emeraldAccent transition-colors">Rates & Calculator</a>
+                    <a href="#fleet" class="hover:text-emeraldAccent transition-colors">Luxury Fleet</a>
+                    <a href="#tours" class="hover:text-emeraldAccent transition-colors">Curated Tours</a>
+                    <a href="#reviews" class="hover:text-emeraldAccent transition-colors">Reviews</a>
+                    <a href="#faqs" class="hover:text-emeraldAccent transition-colors">FAQs</a>
+                </nav>
+
+                <!-- Actions Right (Currency & WhatsApp) -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <!-- Live Currency Selector -->
+                    <div class="relative bg-white/5 border border-white/10 rounded-xl px-2 py-1 flex items-center">
+                        <i class="fa-solid fa-coins text-amber-400 text-xs ml-2 mr-1"></i>
+                        <select id="currency-selector" onchange="changeCurrency(this.value)" class="bg-transparent text-xs text-slate-200 font-bold focus:outline-none cursor-pointer py-1 pr-2">
+                            <option value="USD" class="bg-surface text-slate-200">USD ($)</option>
+                            <option value="EUR" class="bg-surface text-slate-200">EUR (€)</option>
+                            <option value="GBP" class="bg-surface text-slate-200">GBP (£)</option>
+                            <option value="LKR" class="bg-surface text-slate-200">LKR (Rs)</option>
+                        </select>
+                    </div>
+
+                    <!-- Direct WhatsApp Button -->
+                    <a href="https://wa.me/94771234567?text=Hello%20Ceylon%20Roads,%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20airport%20transfer/private%20tour." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-obsidian font-extrabold text-sm shadow-lg shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WhatsApp VIP</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <!-- Mobile Currency Switcher -->
+                    <select onchange="changeCurrency(this.value)" class="bg-white/10 text-xs text-amber-400 font-bold border border-white/10 rounded-lg p-1.5 focus:outline-none">
+                        <option value="USD" class="bg-surface">USD ($)</option>
+                        <option value="EUR" class="bg-surface">EUR (€)</option>
+                        <option value="GBP" class="bg-surface">GBP (£)</option>
+                        <option value="LKR" class="bg-surface">LKR (Rs)</option>
+                    </select>
+
+                    <button id="mobile-menu-btn" type="button" class="text-slate-300 hover:text-emeraldAccent p-2" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-white/10 px-6 py-6 space-y-4">
+            <a href="#home" class="block py-2 text-slate-300 font-medium hover:text-emeraldAccent border-b border-white/5">Home</a>
+            <a href="#calculator" class="block py-2 text-slate-300 font-medium hover:text-emeraldAccent border-b border-white/5">Rates Calculator</a>
+            <a href="#fleet" class="block py-2 text-slate-300 font-medium hover:text-emeraldAccent border-b border-white/5">Luxury Fleet</a>
+            <a href="#tours" class="block py-2 text-slate-300 font-medium hover:text-emeraldAccent border-b border-white/5">Curated Tours</a>
+            <a href="#reviews" class="block py-2 text-slate-300 font-medium hover:text-emeraldAccent border-b border-white/5">Reviews</a>
+            <a href="#faqs" class="block py-2 text-slate-300 font-medium hover:text-emeraldAccent border-b border-white/5">Airport FAQs</a>
+            <a href="#booking" class="block py-2 text-slate-300 font-medium hover:text-emeraldAccent border-b border-white/5">Request Booking</a>
+            <a href="https://wa.me/94771234567" target="_blank" class="w-full flex items-center justify-center gap-2 mt-4 py-3 rounded-xl bg-emeraldAccent text-obsidian font-extrabold text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Direct VIP WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-32 pb-20 lg:pt-40 lg:pb-32 relative min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Info -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-emerald-500/30 text-emerald-400 text-xs font-semibold tracking-wider uppercase backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Official BIA Airport VIP Chauffeur Service</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
+                        Luxury Airport Transfers & Private Tours Across <span class="gradient-text">Sri Lanka</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Experience first-class travel in Executive Toyota KDH & VIP Minibuses. English-speaking drivers, free onboard Wi-Fi, flight tracking, and transparent fixed pricing with no hidden charges.
+                    </p>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2 text-xs font-medium text-slate-300">
+                        <div class="flex items-center gap-2 bg-white/5 px-3.5 py-2 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-shield-halved text-emerald-400"></i> Fully Insured Passenger Transport
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-3.5 py-2 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-plane-arrival text-amber-400"></i> Free Flight Delay Tracking
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-3.5 py-2 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-star text-amber-400"></i> 4.9/5 Rating (Google & TripAdvisor)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right: Dynamic Distance & Price Calculator Widget -->
+                <div class="lg:col-span-5" id="calculator">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/15 shadow-2xl relative">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-calculator text-emerald-400"></i> Fare Calculator
+                                </h3>
+                                <p class="text-xs text-slate-400 mt-0.5">Instant estimate for popular routes</p>
+                            </div>
+                            <span class="text-[10px] uppercase tracking-wider bg-emerald-500/20 text-emerald-400 font-bold px-2.5 py-1 rounded-full border border-emerald-500/30">All Tolls Included</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Pick-up Location</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-plane-departure absolute left-3.5 top-3.5 text-emerald-400"></i>
+                                    <select id="calc-pickup" onchange="calculateFare()" class="w-full pl-10 pr-4 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-sm text-white">
+                                        <option value="bia">Bandaranaike Intl Airport (CMB - BIA)</option>
+                                        <option value="colombo">Colombo City / Mount Lavinia</option>
+                                        <option value="negombo">Negombo Beach Resort Zone</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Drop-off Destination</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-location-dot absolute left-3.5 top-3.5 text-amber-400"></i>
+                                    <select id="calc-drop" onchange="calculateFare()" class="w-full pl-10 pr-4 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-sm text-white">
+                                        <option value="colombo">Colombo City (Expressway Route)</option>
+                                        <option value="galle">Galle / Unawatuna / Mirissa (South)</option>
+                                        <option value="kandy">Kandy City (Hill Capital)</option>
+                                        <option value="ella">Ella / Nuwara Eliya (Highlands)</option>
+                                        <option value="sigiriya">Sigiriya / Dambulla (Cultural Triangle)</option>
+                                        <option value="yala">Yala / Tissamaharama (Safari Zone)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Vehicle Category</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-van-shuttle absolute left-3.5 top-3.5 text-slate-400"></i>
+                                    <select id="calc-vehicle" onchange="calculateFare()" class="w-full pl-10 pr-4 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-sm text-white">
+                                        <option value="kdh_high">Toyota KDH Luxury High Roof (1-9 Passengers)</option>
+                                        <option value="vellfire">VIP Alphard/Vellfire Luxury (1-4 Passengers)</option>
+                                        <option value="coaster">Toyota Coaster VIP Minibus (10-15 Passengers)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Realtime Price & Distance Summary Display -->
+                            <div class="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10 space-y-3">
+                                <div class="flex justify-between items-center text-xs text-slate-300">
+                                    <span>Estimated Distance & Duration:</span>
+                                    <span id="calc-distance-text" class="font-bold text-white">35 km (~40 mins)</span>
+                                </div>
+                                <div class="flex justify-between items-center border-t border-white/10 pt-3">
+                                    <div>
+                                        <span class="text-xs text-slate-400 block">Total Fixed Fare</span>
+                                        <span class="text-2xl font-black text-emerald-400" id="calc-price-text">$38</span>
+                                    </div>
+                                    <button onclick="bookCalculatedRoute()" class="px-5 py-2.5 rounded-xl bg-emeraldAccent hover:bg-emeraldAccent-hover text-obsidian font-extrabold text-sm shadow-md transition-colors">
+                                        Book Route
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Fleet Showcase Section -->
+    <section id="fleet" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-emerald-400 font-bold tracking-widest uppercase text-xs">Our Luxury Fleet</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Executive Vans & VIP Transport</h2>
+                <p class="text-slate-400 mt-3 text-base">Immaculately maintained, fully sanitized luxury vehicles equipped with premium amenities for your journey.</p>
+                
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8">
+                    <button onclick="filterFleet('all')" class="fleet-tab-btn active px-5 py-2 rounded-xl bg-emerald-500 text-obsidian font-bold text-xs transition-all">All Vehicles</button>
+                    <button onclick="filterFleet('executive')" class="fleet-tab-btn px-5 py-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white font-bold text-xs transition-all">Executive Vans</button>
+                    <button onclick="filterFleet('vip')" class="fleet-tab-btn px-5 py-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white font-bold text-xs transition-all">VIP Luxury</button>
+                    <button onclick="filterFleet('minibus')" class="fleet-tab-btn px-5 py-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white font-bold text-xs transition-all">VIP Minibuses</button>
+                </div>
+            </div>
+
+            <!-- Fleet Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Vehicle Card 1 -->
+                <div class="fleet-card executive glass-panel rounded-3xl overflow-hidden glass-panel-hover flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-60 bg-surface overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop" alt="Toyota KDH High Roof" class="w-full h-full object-cover">
+                            <span class="absolute top-4 right-4 bg-emerald-500 text-obsidian text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Top Recommended</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Toyota KDH Luxury High Roof</h3>
+                                    <p class="text-xs text-slate-400 mt-1">Super comfortable luxury van for small groups and families</p>
+                                </div>
+                            </div>
+
+                            <!-- Spec Tags -->
+                            <div class="flex flex-wrap gap-2 mt-5">
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-users text-emerald-400 mr-1"></i> Up to 9 Pax</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-snowflake text-emerald-400 mr-1"></i> Dual A/C</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-suitcase text-emerald-400 mr-1"></i> 8-10 Bags</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-wifi text-emerald-400 mr-1"></i> Free High-Speed Wi-Fi</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-charging-station text-emerald-400 mr-1"></i> USB Ports</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex gap-3">
+                        <button onclick="inspectVehicle('Toyota KDH Luxury High Roof', 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop', 'Ideal for family tours and airport pickups with full luggage space, dual air-conditioning, and adjustable plush velvet seats.')" class="w-1/2 py-3 rounded-xl border border-white/10 bg-white/5 text-slate-200 text-xs font-bold hover:bg-white/10 transition-colors">
+                            Inspect Vehicle
+                        </button>
+                        <button onclick="quickSelectVehicle('Toyota KDH Luxury High Roof')" class="w-1/2 py-3 rounded-xl bg-emeraldAccent hover:bg-emeraldAccent-hover text-obsidian text-xs font-extrabold transition-colors">
+                            Book This Van
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 2 -->
+                <div class="fleet-card vip glass-panel rounded-3xl overflow-hidden glass-panel-hover flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-60 bg-surface overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop" alt="Toyota Alphard / Vellfire Executive" class="w-full h-full object-cover">
+                            <span class="absolute top-4 right-4 bg-amber-400 text-obsidian text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">VIP Executive</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Toyota Alphard / Vellfire VIP</h3>
+                                    <p class="text-xs text-slate-400 mt-1">First-class luxury MPV with captain leather seats</p>
+                                </div>
+                            </div>
+
+                            <!-- Spec Tags -->
+                            <div class="flex flex-wrap gap-2 mt-5">
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-users text-amber-400 mr-1"></i> Up to 4 Pax</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-couch text-amber-400 mr-1"></i> VIP Ottoman Captain Seats</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-suitcase text-amber-400 mr-1"></i> 4 Bags</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-wifi text-amber-400 mr-1"></i> Onboard Wi-Fi</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex gap-3">
+                        <button onclick="inspectVehicle('Toyota Alphard / Vellfire VIP', 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop', 'Unmatched luxury comfort with power reclining captain chairs, ambient interior lighting, and ultra-quiet ride for VIP guests.')" class="w-1/2 py-3 rounded-xl border border-white/10 bg-white/5 text-slate-200 text-xs font-bold hover:bg-white/10 transition-colors">
+                            Inspect Vehicle
+                        </button>
+                        <button onclick="quickSelectVehicle('Toyota Alphard / Vellfire VIP')" class="w-1/2 py-3 rounded-xl bg-emeraldAccent hover:bg-emeraldAccent-hover text-obsidian text-xs font-extrabold transition-colors">
+                            Book This Van
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 3 -->
+                <div class="fleet-card minibus glass-panel rounded-3xl overflow-hidden glass-panel-hover flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-60 bg-surface overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=800&auto=format&fit=crop" alt="Toyota Coaster VIP Minibus" class="w-full h-full object-cover">
+                            <span class="absolute top-4 right-4 bg-blue-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Group Tour</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Toyota Coaster VIP Minibus</h3>
+                                    <p class="text-xs text-slate-400 mt-1">Spacious luxury minibus for large groups & tour delegations</p>
+                                </div>
+                            </div>
+
+                            <!-- Spec Tags -->
+                            <div class="flex flex-wrap gap-2 mt-5">
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-users text-blue-400 mr-1"></i> Up to 15 Pax</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-snowflake text-blue-400 mr-1"></i> Heavy Air-Con</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-suitcase text-blue-400 mr-1"></i> 15+ Bags</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-slate-300"><i class="fa-solid fa-tv text-blue-400 mr-1"></i> Multimedia TV</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex gap-3">
+                        <button onclick="inspectVehicle('Toyota Coaster VIP Minibus', 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=800&auto=format&fit=crop', 'Perfect choice for tour groups with individual luggage bays, PA audio system, high ceiling, and extra legroom.')" class="w-1/2 py-3 rounded-xl border border-white/10 bg-white/5 text-slate-200 text-xs font-bold hover:bg-white/10 transition-colors">
+                            Inspect Vehicle
+                        </button>
+                        <button onclick="quickSelectVehicle('Toyota Coaster VIP Minibus')" class="w-1/2 py-3 rounded-xl bg-emeraldAccent hover:bg-emeraldAccent-hover text-obsidian text-xs font-extrabold transition-colors">
+                            Book This Van
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Tour Itineraries Section -->
+    <section id="tours" class="py-24 bg-surface/50 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-400 font-bold tracking-widest uppercase text-xs">Curated Island Experiences</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Private Sri Lanka Tour Packages</h2>
+                <p class="text-slate-400 mt-3 text-base">Travel in ultimate comfort with a dedicated chauffeur guide. Fully customizable itineraries to match your holiday pace.</p>
+                
+                <!-- Tour Duration Tabs -->
+                <div class="flex justify-center gap-2 mt-8">
+                    <button onclick="showTourTab('1day')" id="tour-btn-1day" class="tour-tab-btn active px-5 py-2.5 rounded-xl bg-amber-500 text-obsidian font-extrabold text-xs transition-all">1-Day Express</button>
+                    <button onclick="showTourTab('3day')" id="tour-btn-3day" class="tour-tab-btn px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white font-extrabold text-xs transition-all">3-Day Cultural & Hill</button>
+                    <button onclick="showTourTab('7day')" id="tour-btn-7day" class="tour-tab-btn px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white font-extrabold text-xs transition-all">7-Day Round Island</button>
+                </div>
+            </div>
+
+            <!-- Tour Tab 1 Content -->
+            <div id="tour-content-1day" class="tour-content-block">
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 relative h-72 lg:h-full rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1000&auto=format&fit=crop" alt="Sigiriya Day Excursion" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-amber-400 text-obsidian font-black text-xs px-3 py-1 rounded-full uppercase">Day Excursion</span>
+                    </div>
+                    <div class="lg:col-span-6 space-y-4">
+                        <h3 class="text-2xl font-bold text-white">Sigiriya Rock Fortress & Dambulla Cave Day Excursion</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Early morning pickup from your hotel/airport. Ascend the world-famous 5th-century Sigiriya Rock Fortress, experience an authentic Sri Lankan lunch, and explore UNESCO-listed Dambulla Golden Temple caves.
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-300 pt-2">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Includes: Private Luxury KDH Van + English Chauffeur + Highway Tolls</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Duration: Approx 12 Hours</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Departure from: Colombo, BIA Airport, or Negombo</div>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Starting All-Inclusive Rate</span>
+                                <span class="text-2xl font-extrabold text-emerald-400 tour-price-1day">$140</span>
+                            </div>
+                            <button onclick="inquireTour('1-Day Sigiriya & Dambulla Express Excursion')" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-obsidian font-extrabold text-xs">
+                                Inquire This Tour
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour Tab 2 Content -->
+            <div id="tour-content-3day" class="tour-content-block hidden">
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 relative h-72 lg:h-full rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=1000&auto=format&fit=crop" alt="Hill Country" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-amber-400 text-obsidian font-black text-xs px-3 py-1 rounded-full uppercase">3 Days / 2 Nights</span>
+                    </div>
+                    <div class="lg:col-span-6 space-y-4">
+                        <h3 class="text-2xl font-bold text-white">Cultural Heritage & Tea Country Highlights</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Cover Kandy Royal Botanical Gardens, Temple of the Tooth relic, Ceylon Tea factory tours in Nuwara Eliya, and the iconic Nine Arch Bridge in Ella.
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-300 pt-2">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Includes: Dedicated Van & Chauffeur Accommodation/Fees</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Flexible stops for photos, tea tasting, and meals</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Unlimited mileage within itinerary</div>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Starting All-Inclusive Rate</span>
+                                <span class="text-2xl font-extrabold text-emerald-400 tour-price-3day">$280</span>
+                            </div>
+                            <button onclick="inquireTour('3-Day Cultural & Hill Country Highlights')" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-obsidian font-extrabold text-xs">
+                                Inquire This Tour
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour Tab 3 Content -->
+            <div id="tour-content-7day" class="tour-content-block hidden">
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 relative h-72 lg:h-full rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=1000&auto=format&fit=crop" alt="Round Island Tour" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-amber-400 text-obsidian font-black text-xs px-3 py-1 rounded-full uppercase">7 Days / 6 Nights</span>
+                    </div>
+                    <div class="lg:col-span-6 space-y-4">
+                        <h3 class="text-2xl font-bold text-white">Grand Ceylon Round Island Experience</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            The ultimate Sri Lanka trip: Sigiriya • Kandy • Nuwara Eliya • Ella • Yala Leopard Safari • Mirissa Beach & Galle Dutch Fort.
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-300 pt-2">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Total Island Coverage with Private VIP Driver</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Airport Pickup & Drop included</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Free cold bottled water & local SIM card setup</div>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Starting All-Inclusive Rate</span>
+                                <span class="text-2xl font-extrabold text-emerald-400 tour-price-7day">$590</span>
+                            </div>
+                            <button onclick="inquireTour('7-Day Grand Ceylon Round Island Experience')" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-obsidian font-extrabold text-xs">
+                                Inquire This Tour
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Quote Generator & Booking Section -->
+    <section id="booking" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-emerald-400 font-bold tracking-widest uppercase text-xs">Seamless Reservation</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Book Your Luxury Ride</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Fill out your travel details below to receive an instant WhatsApp reservation confirmation and quote. Our 24/7 team responds within minutes.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-4 p-4 rounded-2xl glass-panel border border-white/10">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Instant Flight Monitoring</h4>
+                                <p class="text-xs text-slate-400">We track BIA airport arrivals for any delays free of charge.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-2xl glass-panel border border-white/10">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-baby-carriage"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Child Safety Seats Available</h4>
+                                <p class="text-xs text-slate-400">Complimentary ISOFIX child safety seats upon request.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-white/15 shadow-2xl">
+                        <form id="booking-form" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Your Name *</label>
+                                    <input type="text" id="book-name" required placeholder="e.g. Alex Smith" class="w-full px-4 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-sm text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">WhatsApp / Phone *</label>
+                                    <input type="tel" id="book-phone" required placeholder="+44 7123 456789" class="w-full px-4 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-sm text-white">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Pickup Location *</label>
+                                    <input type="text" id="book-pickup" required placeholder="Airport / Hotel Name" class="w-full px-4 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-sm text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Drop Location *</label>
+                                    <input type="text" id="book-drop" required placeholder="Destination / Tour Cities" class="w-full px-4 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-sm text-white">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Date *</label>
+                                    <input type="date" id="book-date" required class="w-full px-3 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-xs text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Time</label>
+                                    <input type="time" id="book-time" class="w-full px-3 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-xs text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Passengers</label>
+                                    <select id="book-pax" class="w-full px-3 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-xs text-white">
+                                        <option value="1-2">1-2 Pax</option>
+                                        <option value="3-5">3-5 Pax</option>
+                                        <option value="6-9">6-9 Pax</option>
+                                        <option value="10+">10+ Pax</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Luggage Bags</label>
+                                    <input type="number" id="book-luggage" min="0" max="20" value="4" class="w-full px-3 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-xs text-white">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Vehicle Selected</label>
+                                <select id="book-vehicle" class="w-full px-4 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-sm text-white">
+                                    <option value="Toyota KDH Luxury High Roof">Toyota KDH Luxury High Roof</option>
+                                    <option value="Toyota Alphard / Vellfire VIP">Toyota Alphard / Vellfire VIP</option>
+                                    <option value="Toyota Coaster VIP Minibus">Toyota Coaster VIP Minibus</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Flight No / Special Requests</label>
+                                <textarea id="book-notes" rows="2" placeholder="e.g. Flight Qatar QR 664 arriving 08:30 AM. Need 1 child seat." class="w-full px-4 py-3 rounded-xl bg-surface/90 border border-white/10 focus:border-emeraldAccent outline-none text-xs text-white"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-amber-500 text-obsidian font-black text-base shadow-xl shadow-emerald-500/20 hover:opacity-95 transition-opacity flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Generate Reservation Link</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-24 bg-surface/40 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-emerald-400 font-bold tracking-widest uppercase text-xs">Guest Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Rated 4.9/5 by International Travelers</h2>
+                <div class="flex items-center justify-center gap-2 mt-4 text-amber-400">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <span class="text-slate-300 text-xs font-bold ml-2">Verified TripAdvisor & Google Reviews</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 flex flex-col justify-between">
+                    <p class="text-slate-300 text-sm italic leading-relaxed">
+                        "Outstanding service from Ceylon Roads! Our driver was waiting at CMB Airport holding a clear name sign. The KDH van was pristine, cold AC, and super spacious for 7 of us with large suitcases."
+                    </p>
+                    <div class="flex items-center gap-3 pt-6 border-t border-white/10 mt-6">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm">
+                            UK
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">James & Oliver</h4>
+                            <span class="text-xs text-slate-400">London, UK 🇬🇧</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 flex flex-col justify-between">
+                    <p class="text-slate-300 text-sm italic leading-relaxed">
+                        "We booked a 5-day private tour from Galle to Ella and Sigiriya. The driver was extremely safe on mountain roads, very knowledgeable, and helped us locate great authentic restaurants."
+                    </p>
+                    <div class="flex items-center gap-3 pt-6 border-t border-white/10 mt-6">
+                        <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm">
+                            AU
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Emma Watson</h4>
+                            <span class="text-xs text-slate-400">Melbourne, Australia 🇦🇺</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-panel p-8 rounded-3xl border border-white/10 flex flex-col justify-between">
+                    <p class="text-slate-300 text-sm italic leading-relaxed">
+                        "The instant calculation and fixed price with no hidden costs made our trip so easy. Communication on WhatsApp prior to arrival was flawless. 10/10 recommended for Sri Lanka!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-6 border-t border-white/10 mt-6">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center text-sm">
+                            DE
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Michael & Sophie</h4>
+                            <span class="text-xs text-slate-400">Munich, Germany 🇩🇪</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-emerald-400 font-bold tracking-widest uppercase text-xs">Help & FAQs</span>
+                <h2 class="text-3xl font-extrabold text-white mt-2">Airport Pickup Instructions & FAQ</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-panel rounded-2xl border border-white/10 overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full p-6 text-left font-bold text-white flex justify-between items-center">
+                        <span>Where will my driver wait for me at BIA Airport (CMB)?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-emerald-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-1" class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-4">
+                        Your driver will be waiting inside the arrival paging hall immediately after you exit customs/baggage claim, holding a personalized signboard with your name.
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl border border-white/10 overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full p-6 text-left font-bold text-white flex justify-between items-center">
+                        <span>What happens if my flight is delayed?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-emerald-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-2" class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-4">
+                        We continuously monitor your flight status using real-time flight tracking. Your driver automatically adjusts pickup time with zero extra delay charges.
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl border border-white/10 overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full p-6 text-left font-bold text-white flex justify-between items-center">
+                        <span>Are highway express toll fees and driver costs included in rates?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-emerald-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-3" class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-4">
+                        Yes! All quotes are 100% transparent and all-inclusive (expressway toll charges, fuel, parking fees, driver allowance, and driver accommodation on multi-day tours).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-white/10 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-white/10">
+                <div class="space-y-4">
+                    <div class="text-lg font-black text-white flex items-center gap-2">
+                        <i class="fa-solid fa-crown text-amber-400"></i> CEYLON ROADS
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Premium airport transfers and customized private tours across Sri Lanka with luxury vehicles and English-speaking drivers.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs uppercase font-bold tracking-wider text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#home" class="hover:text-emerald-400">Home</a></li>
+                        <li><a href="#calculator" class="hover:text-emerald-400">Rate Calculator</a></li>
+                        <li><a href="#fleet" class="hover:text-emerald-400">Fleet Options</a></li>
+                        <li><a href="#tours" class="hover:text-emerald-400">Private Tours</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs uppercase font-bold tracking-wider text-white mb-4">Airport Routes</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><span>BIA Airport to Galle / Mirissa</span></li>
+                        <li><span>BIA Airport to Kandy</span></li>
+                        <li><span>BIA Airport to Ella</span></li>
+                        <li><span>BIA Airport to Sigiriya</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs uppercase font-bold tracking-wider text-white mb-4">24/7 VIP Hotline</h4>
+                    <p class="text-xs text-slate-300 mb-2">WhatsApp / Calls:</p>
+                    <a href="https://wa.me/94771234567" target="_blank" class="text-base font-bold text-emerald-400 block mb-3">+94 77 123 4567</a>
+                    <span class="text-[11px] text-slate-500 block">Bandaranaike Intl Airport Zone, Katunayake, Sri Lanka</span>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-xs text-slate-500">
+                &copy; 2026 CEYLON ROADS Luxury Chauffeur & Private Tours. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vehicle Inspection Modal Dialog -->
+    <div id="inspect-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-obsidian/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 p-4">
+        <div class="glass-panel rounded-3xl max-w-lg w-full p-6 border border-white/15 shadow-2xl relative text-left">
+            <div class="relative h-56 rounded-2xl overflow-hidden mb-4 bg-surface">
+                <img id="modal-img" src="" alt="Vehicle" class="w-full h-full object-cover">
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-white mb-2"></h3>
+            <p id="modal-desc" class="text-xs text-slate-300 leading-relaxed mb-6"></p>
+            <div class="flex gap-3">
+                <button onclick="closeInspectModal()" class="w-full py-3 rounded-xl border border-white/10 text-slate-300 text-xs font-bold hover:bg-white/5">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Confirmation Popup Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-obsidian/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 p-4">
+        <div class="glass-panel rounded-3xl max-w-md w-full p-8 border border-white/20 shadow-2xl text-center">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-4 border border-emerald-500/30">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Quote & Request Generated</h3>
+            <p class="text-xs text-slate-300 mt-2">Your booking details are ready to send directly to our VIP 24/7 WhatsApp dispatch line.</p>
+
+            <div id="booking-modal-summary" class="my-5 p-4 rounded-2xl bg-white/5 border border-white/10 text-left text-xs text-slate-300 space-y-1.5"></div>
+
+            <div class="space-y-3">
+                <button id="modal-whatsapp-link" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-obsidian font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Send to WhatsApp Now</span>
+                </button>
+                <button onclick="closeBookingModal()" class="w-full py-2.5 rounded-xl text-slate-400 text-xs font-semibold hover:text-white">
+                    Cancel / Edit Form
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic & Dynamics -->
+    <script>
+        // Currency Rates State
+        const currencyData = {
+            USD: { symbol: '$', rate: 1.0 },
+            EUR: { symbol: '€', rate: 0.92 },
+            GBP: { symbol: '£', rate: 0.78 },
+            LKR: { symbol: 'Rs ', rate: 310.0 }
+        };
+        let currentCurrency = 'USD';
+
+        // Route Prices in Base USD
+        const routeData = {
+            'bia-colombo': { distance: '35 km (~40 mins)', baseUsd: 38 },
+            'bia-galle': { distance: '155 km (~2 hrs 10 mins)', baseUsd: 85 },
+            'bia-kandy': { distance: '105 km (~3 hrs)', baseUsd: 75 },
+            'bia-ella': { distance: '210 km (~5 hrs)', baseUsd: 130 },
+            'bia-sigiriya': { distance: '145 km (~3 hrs 30 mins)', baseUsd: 95 },
+            'bia-yala': { distance: '280 km (~5 hrs 30 mins)', baseUsd: 160 },
+            
+            'colombo-galle': { distance: '125 km (~1 hr 40 mins)', baseUsd: 70 },
+            'colombo-kandy': { distance: '115 km (~3 hrs 15 mins)', baseUsd: 75 },
+            'colombo-ella': { distance: '205 km (~5 hrs)', baseUsd: 125 },
+            'colombo-sigiriya': { distance: '165 km (~3 hrs 45 mins)', baseUsd: 95 },
+            'colombo-yala': { distance: '260 km (~5 hrs)', baseUsd: 150 },
+
+            'negombo-galle': { distance: '160 km (~2 hrs 15 mins)', baseUsd: 85 },
+            'negombo-kandy': { distance: '100 km (~2 hrs 50 mins)', baseUsd: 70 },
+            'negombo-ella': { distance: '215 km (~5 hrs)', baseUsd: 130 },
+            'negombo-sigiriya': { distance: '140 km (~3 hrs 20 mins)', baseUsd: 90 },
+            'negombo-yala': { distance: '285 km (~5 hrs 30 mins)', baseUsd: 165 }
+        };
+
+        const vehicleMultipliers = {
+            'kdh_high': 1.0,
+            'vellfire': 1.45,
+            'coaster': 1.85
+        };
+
+        // Tour Base Prices (USD)
+        const tourBasePrices = {
+            '1day': 140,
+            '3day': 280,
+            '7day': 590
+        };
+
+        // Currency Change Handler
+        function changeCurrency(curr) {
+            currentCurrency = curr;
+            calculateFare();
+            updateTourPrices();
+        }
+
+        function formatMoney(amountUsd) {
+            const curr = currencyData[currentCurrency];
+            const converted = amountUsd * curr.rate;
+            if (currentCurrency === 'LKR') {
+                return `${curr.symbol}${Math.round(converted).toLocaleString()}`;
+            }
+            return `${curr.symbol}${Math.round(converted)}`;
+        }
+
+        function calculateFare() {
+            const pickup = document.getElementById('calc-pickup').value;
+            const drop = document.getElementById('calc-drop').value;
+            const vehicle = document.getElementById('calc-vehicle').value;
+
+            const routeKey = `${pickup}-${drop}`;
+            const route = routeData[routeKey] || { distance: 'Custom Distance', baseUsd: 110 };
+
+            const finalPriceUsd = route.baseUsd * vehicleMultipliers[vehicle];
+
+            document.getElementById('calc-distance-text').innerText = route.distance;
+            document.getElementById('calc-price-text').innerText = formatMoney(finalPriceUsd);
+        }
+
+        function updateTourPrices() {
+            document.querySelector('.tour-price-1day').innerText = formatMoney(tourBasePrices['1day']);
+            document.querySelector('.tour-price-3day').innerText = formatMoney(tourBasePrices['3day']);
+            document.querySelector('.tour-price-7day').innerText = formatMoney(tourBasePrices['7day']);
+        }
+
+        // Fleet Filtering
+        function filterFleet(category) {
+            document.querySelectorAll('.fleet-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-emerald-500', 'text-obsidian');
+                btn.classList.add('bg-white/5', 'text-slate-300');
+            });
+            event.target.classList.remove('bg-white/5', 'text-slate-300');
+            event.target.classList.add('bg-emerald-500', 'text-obsidian');
+
+            document.querySelectorAll('.fleet-card').forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Tour Tab Switcher
+        function showTourTab(tabKey) {
+            document.querySelectorAll('.tour-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-amber-500', 'text-obsidian');
+                btn.classList.add('bg-white/5', 'text-slate-300');
+            });
+            document.getElementById(`tour-btn-${tabKey}`).classList.remove('bg-white/5', 'text-slate-300');
+            document.getElementById(`tour-btn-${tabKey}`).classList.add('bg-amber-500', 'text-obsidian');
+
+            document.querySelectorAll('.tour-content-block').forEach(block => block.classList.add('hidden'));
+            document.getElementById(`tour-content-${tabKey}`).classList.remove('hidden');
+        }
+
+        // Modal Controls
+        function inspectVehicle(title, imgUrl, desc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-img').src = imgUrl;
+            document.getElementById('modal-desc').innerText = desc;
+
+            const modal = document.getElementById('inspect-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+
+        function closeInspectModal() {
+            const modal = document.getElementById('inspect-modal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function quickSelectVehicle(vehicleName) {
+            document.getElementById('book-vehicle').value = vehicleName;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function bookCalculatedRoute() {
+            const pickupText = document.getElementById('calc-pickup').options[document.getElementById('calc-pickup').selectedIndex].text;
+            const dropText = document.getElementById('calc-drop').options[document.getElementById('calc-drop').selectedIndex].text;
+            
+            document.getElementById('book-pickup').value = pickupText;
+            document.getElementById('book-drop').value = dropText;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function inquireTour(tourTitle) {
+            document.getElementById('book-notes').value = `Inquiry for ${tourTitle}`;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mobile Menu Drawer
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ Toggle Accordion
+        function toggleFaq(num) {
+            const ans = document.getElementById(`faq-ans-${num}`);
+            const icon = document.getElementById(`faq-icon-${num}`);
+            ans.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Form Submit & WhatsApp Generation
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('book-name').value;
+            const phone = document.getElementById('book-phone').value;
+            const pickup = document.getElementById('book-pickup').value;
+            const drop = document.getElementById('book-drop').value;
+            const date = document.getElementById('book-date').value;
+            const time = document.getElementById('book-time').value;
+            const pax = document.getElementById('book-pax').value;
+            const vehicle = document.getElementById('book-vehicle').value;
+            const notes = document.getElementById('book-notes').value;
+
+            const summaryHtml = `
+                <p><strong>Guest:</strong> ${name}</p>
+                <p><strong>Route:</strong> ${pickup} ➔ ${drop}</p>
+                <p><strong>Date & Time:</strong> ${date} ${time ? 'at ' + time : ''}</p>
+                <p><strong>Vehicle & Pax:</strong> ${vehicle} (${pax})</p>
+            `;
+            document.getElementById('booking-modal-summary').innerHTML = summaryHtml;
+
+            const textMessage = `Hello CEYLON ROADS! I would like to book a ride:\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Pickup:* ${pickup}\n*Drop:* ${drop}\n*Date/Time:* ${date} ${time}\n*Vehicle:* ${vehicle}\n*Pax:* ${pax}\n*Requests:* ${notes}`;
+
+            document.getElementById('modal-whatsapp-link').onclick = function() {
+                window.open(`https://wa.me/94771234567?text=${encodeURIComponent(textMessage)}`, '_blank');
+            };
+
+            const modal = document.getElementById('booking-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        });
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        // Initialize Fares on Load
+        window.onload = function() {
+            calculateFare();
+            updateTourPrices();
+        };
+    </script>
+</body>
+</html>
